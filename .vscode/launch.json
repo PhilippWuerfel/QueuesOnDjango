@@ -1,0 +1,39 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python: Debug Script",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "envFile": "${workspaceFolder}/services/dj_queues/.env",
+            "console": "integratedTerminal",
+            "gevent": true,
+            // "redirectOutput": true,
+            // "outputCapture": "std",
+            "cwd": "${fileDirname}",
+            "justMyCode": false,
+            // "args": [
+            //     "-a",
+            //     "--logging=info"
+            // ],
+        },
+        {
+            "name": "Python: Django",
+            "type": "python",
+            "request": "launch",
+            "cwd": "${workspaceFolder}/services/dj_queues/",
+            "program": "manage.py",
+            "args": [
+                "runserver"
+            ],
+            "envFile": "${workspaceFolder}/services/dj_queues/.env",
+            "console": "integratedTerminal",
+            "django": true,
+            "justMyCode": false
+        },      
+    ]
+}
