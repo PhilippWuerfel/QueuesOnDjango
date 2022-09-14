@@ -1,8 +1,11 @@
 # QueuesOnDjango
 Setup with Celery + Django including message broker and result backend
 
-## Celery
-- `celery -A dj_queues worker --loglevel=info` - Start celery worker in terminal
+## Local Setup
+
+Start processes locally, workdir is at level of manage.py
+- `celery -A dj_queues worker --loglevel=info` - Spin up celery worker in terminal
+- `celery -A dj_queues flower --port=5555` - Spin up flower monitoring
 
 ## Testing, Linting, Formating
 We use Pytest for unit tests, flake8 for codestyle checks, black & isort for code formatting.

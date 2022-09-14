@@ -1,6 +1,7 @@
 django
 celery
 redis
+flower
 
 # linting
 flake8
