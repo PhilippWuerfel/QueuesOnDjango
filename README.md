@@ -8,6 +8,9 @@ Start processes locally, workdir is at level of manage.py
 - `celery -A dj_queues worker --loglevel=info` - Spin up celery worker in terminal
 - `celery -A dj_queues flower --port=5555` - Spin up flower monitoring
 
+## Docker
+- `docker-compose exec <service-name> bash` - Execute bash on docker service
+
 ## Testing, Linting, Formating
 We use Pytest for unit tests, flake8 for codestyle checks, black & isort for code formatting.
 - `python -m pytest` - Run pytest<br>
