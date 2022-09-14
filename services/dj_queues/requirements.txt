@@ -1,7 +1,20 @@
+# web framework
 django
+
+# WSGI server
+gunicorn
+
+# task queue system
 celery
-redis
+
+# monitoring for celery tasks
 flower
+
+# message broker and result backend for celery
+redis
+
+# postgresql binary
+psycopg2-binary
 
 # linting
 flake8

@@ -1,5 +1,6 @@
 # QueuesOnDjango
 Setup with Celery + Django including message broker and result backend
+Credits to https://testdriven.io/courses/django-celery/ for giving such nice tutorials and explanations.
 
 ## Local Setup
 

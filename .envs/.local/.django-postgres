@@ -1,0 +1,3 @@
+POSTGRES_DB=backend_db
+POSTGRES_USER=postgres_wizzard
+POSTGRES_PASSWORD=42WingardiumLeviosa

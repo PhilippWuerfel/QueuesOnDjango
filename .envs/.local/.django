@@ -1,0 +1,15 @@
+DEBUG=0
+SECRET_KEY=foooo
+DJANGO_ALLOWED_HOSTS=localhost
+
+SQL_ENGINE=django.db.backends.postgresql
+SQL_DATABASE=backend_db
+SQL_USER=postgres_wizzard
+SQL_PASSWORD=42WingardiumLeviosa
+SQL_HOST=django-postgres
+SQL_PORT=5432
+
+CELERY_BROKER=redis://redis:6379/0
+CELERY_BACKEND=redis://redis:6379/0
+
+CHANNELS_REDIS=redis://redis:6379/0
