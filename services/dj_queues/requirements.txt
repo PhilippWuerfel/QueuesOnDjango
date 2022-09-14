@@ -22,3 +22,6 @@ black
 isort
 
 requests
+
+# channels
+# channels-redis
