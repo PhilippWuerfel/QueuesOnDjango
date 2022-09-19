@@ -1,13 +1,11 @@
 from django.urls import path
-
 from polls.views import (
     subscribe,
+    subscribe_ws,
     task_status,
     webhook_test,
     webhook_test_async,
-    subscribe_ws,
 )
-
 
 urlpatterns = [
     path("form/", subscribe, name="form"),

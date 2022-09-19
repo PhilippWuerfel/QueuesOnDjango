@@ -10,8 +10,10 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
-from pathlib import Path
 import os
+from pathlib import Path
+
+from kombu import Queue
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -38,6 +40,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "django_celery_beat",
     "polls",
     "channels",
 ]
@@ -131,10 +134,6 @@ STATIC_ROOT = os.path.join(BASE_DIR, "static")
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-# Celery setup
-CELERY_BROKER_URL = os.environ.get("CELERY_BROKER", "redis://127.0.0.1:6379/0")
-CELERY_RESULT_BACKEND = os.environ.get("CELERY_BACKEND", "redis://127.0.0.1:6379/0")
-
 CHANNEL_LAYERS = {
     "default": {
         "BACKEND": "channels_redis.core.RedisChannelLayer",
@@ -143,3 +142,26 @@ CHANNEL_LAYERS = {
         },
     },
 }
+
+# Celery setup
+CELERY_BROKER_URL = os.environ.get("CELERY_BROKER", "redis://127.0.0.1:6379/0")
+CELERY_RESULT_BACKEND = os.environ.get("CELERY_BACKEND", "redis://127.0.0.1:6379/0")
+
+CELERY_BEAT_SCHEDULE = {
+    # "task-clear-session": {
+    #     "task": "task_clear_session",
+    #     "schedule": 5.0,  # five seconds
+    # },
+}
+
+CELERY_TASK_DEFAULT_QUEUE = "default"
+
+# Force all queues to be explicitly listed in `CELERY_TASK_QUEUES` to help prevent typos
+CELERY_TASK_CREATE_MISSING_QUEUES = False
+
+CELERY_TASK_QUEUES = (
+    # need to define default queue here or exception would be raised
+    Queue("default"),
+    Queue("high_priority"),
+    Queue("low_priority"),
+)

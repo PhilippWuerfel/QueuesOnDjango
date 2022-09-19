@@ -5,5 +5,5 @@ set -o nounset
 
 rm -f './celerybeat.pid'
 
-celery -A dj_queues beat -l INFO
-# celery -A ecodata beat -l info --scheduler django_celery_beat.schedulers:DatabaseScheduler
+# celery -A dj_queues beat -l INFO
+celery -A dj_queues beat -l info --scheduler django_celery_beat.schedulers:DatabaseScheduler

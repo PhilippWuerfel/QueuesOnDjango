@@ -6,7 +6,6 @@ https://testdriven.io/courses/django-celery/getting-started/
 import os
 
 from celery import Celery
-
 from django.conf import settings
 
 # set the default Django settings module for the 'celery' app.

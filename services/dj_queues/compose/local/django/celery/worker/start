@@ -3,4 +3,10 @@
 set -o errexit
 set -o nounset
 
-celery -A dj_queues worker -l INFO
+# celery -A dj_queues worker -l INFO
+
+celery -A dj_queues worker --loglevel=info -Q high_priority,default
+
+# watchfiles \
+#   --filter python \
+#   'celery -A dj_queues worker --loglevel=info -Q high_priority,default'      # update

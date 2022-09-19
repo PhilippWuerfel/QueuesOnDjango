@@ -4,13 +4,11 @@ import random
 
 import requests
 from celery.result import AsyncResult
-from django.http import JsonResponse, HttpResponse
+from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
-
 from polls.forms import YourForm
 from polls.tasks import sample_task, task_process_notification
-
 
 logger = logging.getLogger(__name__)
 

@@ -1,5 +1,6 @@
 # web framework
 django
+django-celery-beat
 
 # WSGI server
 gunicorn
