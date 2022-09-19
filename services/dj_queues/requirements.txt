@@ -23,5 +23,5 @@ isort
 
 requests
 
-# channels
-# channels-redis
+channels
+channels-redis

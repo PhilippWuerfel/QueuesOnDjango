@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "polls",
+    "channels",
 ]
 
 MIDDLEWARE = [
@@ -69,7 +70,8 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = "dj_queues.wsgi.application"
+# WSGI_APPLICATION = "dj_queues.wsgi.application"
+ASGI_APPLICATION = "dj_queues.asgi.application"
 
 
 # Database
@@ -122,6 +124,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = "static/"
+STATIC_ROOT = os.path.join(BASE_DIR, "static")
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
@@ -131,3 +134,12 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 # Celery setup
 CELERY_BROKER_URL = os.environ.get("CELERY_BROKER", "redis://127.0.0.1:6379/0")
 CELERY_RESULT_BACKEND = os.environ.get("CELERY_BACKEND", "redis://127.0.0.1:6379/0")
+
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "channels_redis.core.RedisChannelLayer",
+        "CONFIG": {
+            "hosts": [(os.environ.get("CHANNELS_REDIS", "redis://127.0.0.1:6379/0"))],
+        },
+    },
+}
